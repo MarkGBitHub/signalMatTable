@@ -1,0 +1,45 @@
+<table mat-table [dataSource]="computedTable()">
+    <!-- Column 1 -->
+    <ng-container matColumnDef="col1">
+      <th mat-header-cell *matHeaderCellDef> Column 1 </th>
+      <td mat-cell *matCellDef="let row; let rowIndex = index">
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="row.col1" (ngModelChange)="updateValue(rowIndex, 'col1', $event)" />
+        </mat-form-field>
+      </td>
+    </ng-container>
+  
+    <!-- Column 2 -->
+    <ng-container matColumnDef="col2">
+      <th mat-header-cell *matHeaderCellDef> Column 2 </th>
+      <td mat-cell *matCellDef="let row; let rowIndex = index">
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="row.col2" (ngModelChange)="updateValue(rowIndex, 'col2', $event)" />
+        </mat-form-field>
+      </td>
+    </ng-container>
+  
+    <!-- Column 3 -->
+    <ng-container matColumnDef="sum">
+      <th mat-header-cell *matHeaderCellDef> Sum </th>
+      <td mat-cell *matCellDef="let row; let rowIndex = index">
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="row.sum" (ngModelChange)="updateValue(rowIndex, 'sum', $event)" />
+        </mat-form-field>
+      </td>
+    </ng-container>
+  
+        <!-- Diff 3 -->
+        <ng-container matColumnDef="diff">
+          <th mat-header-cell *matHeaderCellDef> Difference </th>
+          <td mat-cell *matCellDef="let row; let rowIndex = index">
+            <mat-form-field appearance="outline">
+              <input matInput [(ngModel)]="row.diff" (ngModelChange)="updateValue(rowIndex, 'diff', $event)" />
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
